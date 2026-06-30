@@ -1,10 +1,10 @@
 # yaml-language-server: $schema=https://render.com/schema/render.yaml.json
 #
-# Morphic on Render — Exa search variant
-# Upstream: https://github.com/miurla/morphic
+# Morphic on Render — Exa search example
+# https://github.com/render-examples/morphic
+# Upstream app: https://github.com/miurla/morphic
 #
-# Use this file as-is in any fork of miurla/morphic (no upstream PR required).
-# Dashboard → New → Blueprint → connect your fork → Apply.
+# Deploy: https://render.com/deploy?repo=https://github.com/render-examples/morphic
 #
 # Builds from ./Dockerfile. Migrations run on container start (docker-entrypoint.sh).
 #
