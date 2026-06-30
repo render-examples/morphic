@@ -8,6 +8,10 @@
 
 [Morphic](https://github.com/miurla/morphic) is an open-source AI search engine: grounded answers, cited sources, and rich inline components streamed from the model. This Render example wires Morphic for a minimal production stack (Docker web service + Postgres + Exa) without self-hosted SearXNG or Redis.
 
+![Morphic on Render — home](./assets/hero.png)
+
+![Morphic search results — sources, summary, and structured answer](./assets/search-results.png)
+
 ## Table of Contents
 
 - [What This App Does](#what-this-app-does)
