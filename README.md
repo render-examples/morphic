@@ -17,7 +17,6 @@
 - [What This App Does](#what-this-app-does)
 - [What This Demonstrates](#what-this-demonstrates)
 - [Architecture](#architecture)
-- [Quick Start](#quick-start)
 - [Deploy to Render](#deploy-to-render)
 - [Configuration](#configuration)
 - [Troubleshooting](#troubleshooting)
@@ -58,7 +57,7 @@ Users ask research-style questions in a chat UI. Morphic searches the web via [E
 
 ### Why this layout
 
-Docker Compose upstream bundles Postgres, Redis, and SearXNG. On Render, Exa replaces SearXNG and managed Postgres replaces the local database, so you run two billable resources instead of four services.
+The upstream Docker Compose stack bundles Postgres, Redis, and SearXNG. This example uses Exa for search and Render Postgres for chat history, so you run two billable resources instead of four services.
 
 ---
 
@@ -94,24 +93,6 @@ Docker Compose upstream bundles Postgres, Redis, and SearXNG. On Render, Exa rep
 | `morphic-render` (env group) | — | Shared non-secret config (`SEARCH_API`, anonymous mode) |
 
 Default region: **oregon** (change in [`render.yaml`](./render.yaml)).
-
----
-
-## Quick Start
-
-Run locally with Docker Compose (includes SearXNG + Redis):
-
-```bash
-git clone https://github.com/render-examples/morphic.git
-cd morphic
-cp .env.local.example .env.local
-# Set OPENAI_API_KEY (or another provider) in .env.local
-docker compose up -d
-```
-
-Visit http://localhost:3000.
-
-For local development without Docker, see upstream [Installation](https://github.com/miurla/morphic#installation).
 
 ---
 
@@ -223,8 +204,8 @@ Report this example's deploy wiring: [render-examples/morphic issues](https://gi
 This repo tracks [miurla/morphic](https://github.com/miurla/morphic) with Render-specific [`render.yaml`](./render.yaml) and the example README above.
 
 - [Configuration](https://github.com/miurla/morphic/blob/main/docs/CONFIGURATION.md)
-- [Docker guide](https://github.com/miurla/morphic/blob/main/docs/DOCKER.md)
 - [Live demo (upstream)](https://chat.morphic.sh)
+- [Live demo (Render)](https://morphic-us8x.onrender.com/)
 
 ---
 
