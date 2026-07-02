@@ -4,7 +4,7 @@
 # https://github.com/render-examples/morphic
 # Upstream app: https://github.com/miurla/morphic
 #
-# Deploy: https://render.com/deploy?repo=https://github.com/render-examples/morphic
+# Deploy: https://render.com/deploy-template/api/github/start?template_repo=morphic
 #
 # Builds from ./Dockerfile. Migrations run on container start (docker-entrypoint.sh).
 #
