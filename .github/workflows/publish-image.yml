@@ -60,3 +60,26 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Make package public
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Package name in API is the image name without org, URL-encoded if needed
+          for i in 1 2 3 4 5 6; do
+            if gh api \
+              --method PATCH \
+              -H "Accept: application/vnd.github+json" \
+              "/orgs/render-examples/packages/container/morphic" \
+              -f visibility=public >/tmp/pkg-vis.json 2>/tmp/pkg-vis.err; then
+              echo "Package visibility set to public"
+              cat /tmp/pkg-vis.json | head -c 400 || true
+              exit 0
+            fi
+            echo "Attempt $i failed:"; cat /tmp/pkg-vis.err || true
+            sleep 10
+          done
+          echo "::warning::Could not make package public automatically. Set visibility in GitHub UI: Settings → Packages → morphic → Change visibility."
+          exit 0
+
