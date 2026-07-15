@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://render.com/schema/render.yaml.json
 #
-# Morphic on Render — Exa search example
+# Morphic on Render: Exa search example
 # https://github.com/render-examples/morphic
 # Upstream app: https://github.com/miurla/morphic
 #
@@ -9,7 +9,7 @@
 # Builds from ./Dockerfile. Migrations run on container start (docker-entrypoint.sh).
 #
 # Set at Apply or in the Dashboard after deploy:
-#   EXA_API_KEY — https://dashboard.exa.ai/
+#   EXA_API_KEY: https://dashboard.exa.ai/
 #   One LLM key: ANTHROPIC_API_KEY, OPENAI_API_KEY, or GOOGLE_GENERATIVE_AI_API_KEY
 #
 # NODE_TLS_REJECT_UNAUTHORIZED: required for Render Postgres with upstream Morphic
