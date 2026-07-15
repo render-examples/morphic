@@ -1,0 +1,32 @@
+name: List packages debug
+on: workflow_dispatch
+permissions:
+  packages: write
+  contents: read
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List org container packages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          echo "=== GET /orgs/.../packages ==="
+          gh api "/orgs/render-examples/packages?package_type=container" | head -c 2000
+          echo
+          echo "=== GET package morphic ==="
+          gh api "/orgs/render-examples/packages/container/morphic"
+          echo
+          echo "=== GET user packages ==="
+          gh api "/user/packages?package_type=container" | head -c 2000
+          echo
+          echo "=== try PUT visibility ==="
+          gh api --method PUT -H "Accept: application/vnd.github+json" \
+            "/orgs/render-examples/packages/container/morphic/visibility" \
+            -f visibility=public
+          echo
+          echo "=== try PATCH ==="
+          gh api --method PATCH -H "Accept: application/vnd.github+json" \
+            "/orgs/render-examples/packages/container/morphic" \
+            -f visibility=public
